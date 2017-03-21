@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>template.jsp</title>
+<title>index.jsp</title>
 <!-- 1. animate -->
 <link rel="stylesheet" href="/webjars/animate.css/3.5.2/animate.min.css">
 <!-- 2. bootstrap -->
@@ -25,6 +25,6 @@
 
 </head>
 <body>
-<c:redirect url="/country/page/1"/>
+<c:redirect url="/city/page/1"/>
 </body>
 </html>

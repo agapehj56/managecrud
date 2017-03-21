@@ -18,5 +18,7 @@
 </head>
 <body>
 <h1>City 등록 성공입니다.</h1>
+${city}
+
 </body>
 </html>

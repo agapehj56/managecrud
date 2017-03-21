@@ -42,9 +42,4 @@ public class CitySearchControllerTests {
 		String html = rest.getForObject("/city/item/100", String.class);
 		System.out.println(html);
 	}
-	
-	
-	
-	
-
 }

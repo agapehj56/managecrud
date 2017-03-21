@@ -110,9 +110,7 @@ public class CityMapperTests {
 		
 		int cnt = cityMapper.insert(city);
 		System.out.println(cityMapper.selectById(city.getId()));
-		
 	}
-
 }
 
 

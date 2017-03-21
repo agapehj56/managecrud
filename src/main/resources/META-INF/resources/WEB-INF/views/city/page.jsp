@@ -18,6 +18,7 @@
 </head>
 <body>
 <h1>City Page pageNo=${page.paging.pageNo}</h1>
+<a href="/city/register" class="btn btn-primary">City 등록</a>
 <ol class="list-group">
 	<c:forEach var="city" items="${page.citys}">
 		<li class="list-group-item-info animated zoomIn">${city.id}, <a href="/city/item/${city.id}?pageNo=${page.paging.pageNo}">${city.name}</a>, ${city.population} ${city.countryCode}</li>
@@ -32,10 +33,6 @@
 </c:forEach>
 <a href="/city/page/${page.paging.lastPage + 1}">Next</a>
 <a href="/city/page/${page.paging.totalPage}">Last</a>
-
-
-
-
 
 
 </body>
