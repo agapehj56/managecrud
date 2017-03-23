@@ -98,10 +98,10 @@ public class CityMapperTests {
 	@Test
 	public void test04_insert() {
 		City city = new City();
-		city.setName("xxx");
+		city.setName("database");
 		city.setCountryCode("KOR");
 		
-		Country country = countryMapper.selectByCode(city.getCountryCode());
+		Country country = countryMapper.selectByCode(city.getCountryCode());	// 나라가 있는 지 확인.
 		
 		if (country == null) {
 			System.out.println("error = " + "해당 Country Code가 없습니다.");
@@ -110,6 +110,32 @@ public class CityMapperTests {
 		
 		int cnt = cityMapper.insert(city);
 		System.out.println(cityMapper.selectById(city.getId()));
+	}
+	
+	@Test
+	public void test05_updateById(){
+		City city = cityMapper.selectById(4101);
+//		city.setId(4101);
+		city.setName("html");
+//		city.setCountryCode("XYZ");
+		city.setCountryCode("KOR");
+		
+		Country country = countryMapper.selectByCode(city.getCountryCode());	// 나라가 있는 지 확인.
+		
+		if (country == null) {
+			System.out.println("error = " + "해당 Country Code가 없습니다.");
+			return;
+		}
+		
+		int cnt = cityMapper.updateById(city);
+		System.out.println(cityMapper.selectById(city.getId()));
+	}
+	
+	@Test
+	public void test06_deleteById(){
+		int id = 4081;
+		int rtn = cityMapper.deleteById(id);
+		System.out.println("rtn= " + rtn);
 	}
 }
 

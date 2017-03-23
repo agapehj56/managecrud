@@ -178,7 +178,7 @@ offset 1 * 10 row
  delete from country where code='XYZ';
 
 
-
+select * from city where id > 4080;
 
  
 

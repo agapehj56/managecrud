@@ -10,6 +10,14 @@ import com.example.domain.City;
 import com.example.domain.Country;
 
 public class CityForm extends City {
+	
+	public void setCity(City city){
+		super.setId(city.getId());
+		super.setName(city.getName());
+		super.setCountryCode(city.getCountryCode());
+		super.setDistrict(city.getDistrict());
+		super.setPopulation(city.getPopulation());
+	}
 
 	@NotNull
 	@Size(max=35)
