@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.domain.Dept;
-import com.example.exception.NotFoundRuntimeException;
 import com.example.mapper.DeptMapper;
 import com.example.util.Pagination;
 

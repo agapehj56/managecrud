@@ -7,7 +7,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.example.domain.City;
-import com.example.domain.Country;
 
 public class CityForm extends City {
 	

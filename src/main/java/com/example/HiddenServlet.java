@@ -73,8 +73,5 @@ public class HiddenServlet extends HttpServlet {
 		System.out.println("doTrace().....");
 		System.out.println("############");
 	}
-	
-	
-	
-	
+		
 }

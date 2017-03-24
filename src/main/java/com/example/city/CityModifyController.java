@@ -31,7 +31,7 @@ public class CityModifyController {
 	CityModifyService cityModifyService;
 	
 	@GetMapping("/modify/{id}")
-	public String modifyForm(CityForm cityForm, @PathVariable int id){	// pathvariable로 넘어가게해줌 
+	public String modifyForm(CityForm cityForm, @PathVariable int id){	// pathvariable(url->java형태로) path에 있는 변수이끼 때문에 자바에 있는 변수기 때문에 변환해주기 위해 pathvariable 있어야 함        넘어가게해줌 
 		log.info("modifyForm(" + id + ")");
 		City city = citySearchService.getCityById(id);
 		cityForm.setCity(city);
@@ -40,29 +40,29 @@ public class CityModifyController {
 	}  			// 양식으로 작성하라는 메소드
 	
 	@PostMapping("/modify")
-	public String register(@Valid CityForm cityForm, BindingResult errors){
-		log.info("register(" + cityForm +")");
+	public String modify(@Valid CityForm cityForm, BindingResult errors, Integer pageNo){		// 쿼리스트링에 있는 파라미터이니깐 @pathvariable 안 넣어줘도 됨. pageNo는 jsp에서 필요해서 사용함.
+		log.info("modify(" + cityForm +")");													// 그 당시에 있는 pageNo의 정보를 보기 위한거여서 파라미터 형태로 받아서 사용함.
 		System.out.println(cityForm);
 		
 		if(errors.hasErrors()){
 			System.out.println(errors);
-			return "city/registerForm";				// forward
+			return "city/modifyForm";				// forward
 		}
 		
 		cityModifyService.modify(cityForm, errors);
 		
 		if(errors.hasErrors()){
 			System.out.println(errors);
-			return "city/registerForm";				// forward
+			return "city/modifyForm";				// forward
 		}
 		
-		return "redirect:/city/registerSuccess/" + cityForm.getId();	// redirect
+		return "redirect:/city/modifySuccess/" + cityForm.getId() + "?pageNo=" + pageNo;	// redirect 	쿼리 스트링 형태로 넘어감. 파라미터
 	}
 	
 	@GetMapping("/modifySuccess/{id}")
-	public String registerSuccess(@PathVariable int id, Model model){
+	public String modifySuccess(@PathVariable int id, Model model){
 		City city = citySearchService.getCityById(id);
 		model.addAttribute("city", city);
-		return "city/registerSuccess";
+		return "city/modifySuccess";
 	}
 }

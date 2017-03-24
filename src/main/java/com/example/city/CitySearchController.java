@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.city.service.CitySearchService;
 import com.example.domain.City;
-import com.example.exception.NotFoundRuntimeException;
 
 @Controller
 @RequestMapping("/city")

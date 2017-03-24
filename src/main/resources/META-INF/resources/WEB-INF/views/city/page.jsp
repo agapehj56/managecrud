@@ -26,8 +26,8 @@
 			<a href="/city/item/${city.id}?pageNo=${page.paging.pageNo}">${city.name}</a>, 
 			${city.population} 
 			${city.countryCode}
-			<a href="/city/modify/${city.id}">수정</a>
-			<a href="/city/modify/${city.id}">삭제</a>
+			<a class="btn btn-success" href="/city/modify/${city.id}?pageNo=${page.paging.pageNo}">수정</a>
+			<a class="btn btn-info" href="/city/unregister/${city.id}?pageNo=${page.paging.pageNo}">삭제</a>
 		</li>
 	</c:forEach>
 </ol>
@@ -40,7 +40,6 @@
 </c:forEach>
 <a href="/city/page/${page.paging.lastPage + 1}">Next</a>
 <a href="/city/page/${page.paging.totalPage}">Last</a>
-
 
 </body>
 </html>

@@ -19,7 +19,8 @@
 </head>
 <body>
 <h1>City 수정</h1>
-<form:form action="/city/modify" method="post" modelAttribute="cityForm">
+<form:form action="/city/modify?pageNo=${param.pageNo}" method="post" modelAttribute="cityForm">   <!-- 성공하면 파라미터 형태로 성공페이지로 돌아감 -->
+	<form:errors/>
 	<!-- id -->
 	<div>
 		<label for="id">id : </label>
@@ -52,7 +53,7 @@
 	</div>
 	
 	<input type="submit" value="City 등록">
+	
 </form:form>
-
 </body>
 </html>
