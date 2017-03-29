@@ -64,13 +64,6 @@ public class CitySearchServiceTests {
 		City c =  service.getCityById(1, true);
 		System.out.println(c);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 }

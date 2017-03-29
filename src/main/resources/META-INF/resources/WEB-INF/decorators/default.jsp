@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>			<!-- dependency에 security 추가한 뒤 추가함 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,14 +62,18 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+				<security:authorize access="isAnonymous()">
+					<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+				</security:authorize>
+				<security:authorize access="isAuthenticated()">
+					<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+				</security:authorize>
 			</ul>
 		</div>
 	</div>
 </nav>
 
 <sitemesh:write property="body"/>
-
 
 
 </body>
